@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanne Johansson — Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400;1,600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ad5c36405b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- ── BOOT SCREEN ── -->
+  <div class="boot-screen" id="boot-screen">
+    <div class="boot-content">
+      <div class="boot-name">Sanne Johansson</div>
+      <div class="boot-role">Full Stack Web Application Developer</div>
+      <div class="boot-bar-wrap"><div class="boot-bar" id="boot-bar"></div></div>
+    </div>
+  </div>
+  <script>
+    // Inline: runs immediately, no dependency on main.js or fonts
+    var _boot = document.getElementById('boot-screen');
+    var _bar  = document.getElementById('boot-bar');
+    function _hideBoot() {
+      _boot.style.transition = 'opacity 0.45s ease';
+      _boot.style.opacity = '0';
+      _boot.style.pointerEvents = 'none';
+      setTimeout(function() { _boot.style.display = 'none'; }, 500);
+    }
+    setTimeout(function() { _bar.style.transition = 'width 0.4s ease'; _bar.style.width = '55%'; }, 80);
+    setTimeout(function() { _bar.style.width = '80%'; }, 500);
+    setTimeout(function() { _bar.style.width = '100%'; }, 900);
+    setTimeout(_hideBoot, 1200);
+    setTimeout(function() { _boot.style.display = 'none'; }, 4000); // safety net
+  </script>
+
+  <!-- ── MENU BAR ── -->
+  <div class="menubar">
+    <span class="menubar-logo">Sanne Johansson</span>
+    <span class="menubar-item">File</span>
+    <span class="menubar-item">View</span>
+    <span class="menubar-item" onclick="showFolder('work')">Work</span>
+    <span class="menubar-item" onclick="openAbout()">About</span>
+    <span class="menubar-item" onclick="openContact()">Contact</span>
+    <div class="menubar-right">
+      <span class="menubar-clock" id="clock">9:41 AM</span>
+    </div>
+  </div>
+
+  <!-- ── DESKTOP ── -->
+  <div class="desktop">
+    <div class="finder">
+
+      <div class="finder-titlebar">
+        <div class="tl tl-close"></div>
+        <div class="tl tl-min"></div>
+        <div class="tl tl-max"></div>
+        <span class="finder-title-text" id="finder-title">Selected Work — 7 Projects</span>
+      </div>
+
+      <div class="finder-toolbar">
+        <div class="tb-navbtn">‹</div>
+        <div class="tb-navbtn">›</div>
+        <div class="tb-path">
+          <span class="tb-path-seg">Sanne Johansson</span>
+          <span class="tb-path-sep">›</span>
+          <span class="tb-path-seg">Work</span>
+          <span class="tb-path-sep">›</span>
+          <span class="tb-path-seg active" id="breadcrumb">Selected Work</span>
+        </div>
+        <div class="tb-view-grp">
+          <div class="tb-view active">▦</div>
+        </div>
+        <div class="tb-search">🔍 <span style="margin-left:2px">Search</span></div>
+      </div>
+
+      <div class="finder-body">
+
+        <div class="finder-sidebar">
+          <div class="sb-group">
+            <div class="sb-label">Portfolio</div>
+            <div class="sb-item active" data-folder="work" onclick="switchFolder(this,'work')">
+              <span class="sb-icon">📁</span> Selected Work
+            </div>
+            <div class="sb-item" data-folder="fullstack" onclick="switchFolder(this,'fullstack')">
+              <span class="sb-icon">📁</span> Full-Stack
+            </div>
+            <div class="sb-item" data-folder="frontend" onclick="switchFolder(this,'frontend')">
+              <span class="sb-icon">📁</span> Front-End
+            </div>
+          </div>
+          <div class="sb-group">
+            <div class="sb-label">Me</div>
+            <div class="sb-item" onclick="openAbout()">
+              <span class="sb-icon">📄</span> About Me.txt
+            </div>
+            <div class="sb-item" onclick="openResume()">
+              <span class="sb-icon">📄</span> Resume.pdf
+            </div>
+            <div class="sb-item" onclick="openCertificate()">
+              <span class="sb-icon">📄</span> Certificate.pdf
+            </div>
+          </div>
+        </div>
+
+        <div class="finder-content">
+          <div class="content-grid-wrap">
+            <div class="project-grid" id="project-grid"></div>
+          </div>
+
+          <div class="preview-panel">
+            <div class="preview-thumb" id="preview-thumb">
+              <div class="pf-icon">
+                <div class="pf-icon-tab"></div>
+                <div class="pf-icon-body"><span class="proj-initials" id="preview-emoji">📁</span></div>
+              </div>
+            </div>
+            <div class="preview-meta">
+              <div class="preview-title" id="preview-title">Select a project</div>
+              <div class="preview-sub" id="preview-sub">Click a folder to preview</div>
+              <div class="preview-tags" id="preview-tags"></div>
+            </div>
+            <div class="preview-open-btn" id="preview-open-btn" onclick="openSelectedProject()" style="display:none">
+              View Live ↗
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="finder-statusbar">
+        <span class="statusbar-text" id="status-text">7 items · Double-click to open</span>
+        <div class="statusbar-size">
+          <div class="size-btn">−</div>
+          <div class="size-btn">+</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── PROJECT OVERLAY ── -->
+  <div class="project-overlay" id="project-overlay" onclick="closeOverlay(event)">
+    <div class="project-modal">
+      <div class="modal-titlebar">
+        <div class="modal-close" onclick="closeProject()"></div>
+        <span class="modal-title" id="modal-title">Project</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-hero" id="modal-hero">
+          <img class="modal-screenshot" id="modal-screenshot" src="" alt="">
+          <span class="modal-emoji-fallback" id="modal-emoji-fallback"></span>
+        </div>
+        <div class="modal-info">
+          <div class="modal-proj-title" id="modal-proj-title">Project Title</div>
+          <div class="modal-proj-meta">
+            <div class="modal-tags-tech" id="modal-tags-tech"></div>
+            <div class="modal-tags-type" id="modal-tags-type"></div>
+          </div>
+          <div class="modal-desc" id="modal-desc"></div>
+          <div class="modal-actions">
+            <button class="modal-btn" id="modal-live-btn">View Live ↗</button>
+            <button class="modal-btn secondary" id="modal-github-btn">GitHub →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ABOUT OVERLAY ── -->
+  <div class="project-overlay" id="about-overlay" onclick="closeAboutOverlay(event)">
+    <div class="project-modal about-modal">
+      <div class="modal-titlebar">
+        <div class="modal-close" onclick="closeAbout()"></div>
+        <span class="modal-title">ABOUT ME.TXT</span>
+      </div>
+      <div class="about-body">
+        <div class="about-hero">
+          <div class="about-avatar">SJ</div>
+          <div class="about-headline">
+            <div class="about-name">Sanne Johansson</div>
+            <div class="about-role">Full Stack Web Applications Developer</div>
+            <div class="about-location">📍 Sweden</div>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="about-bio">
+            <p>I'm a <strong>certified</strong> Full Stack Web Application Developer currently studying <strong>Back End</strong> Development. I'm educated both to write <strong>clean, responsive code</strong> from scratch and to use <strong>frameworks</strong> and libraries as Bootstrap, jQuery, React and Tailwind.</p>
+            <p>Prior to my Web Development studies I've graduated in <strong>Aesthetics-Media</strong>, which included studies in <strong>digital creativity</strong>, photography, film and media production and aesthetic communication.</p>
+            <p>My passion lays in making a visually appealing and <strong>user friendly</strong> user experience, and to create this down to the smallest of <strong>details</strong>.</p>
+          </div>
+          <div class="about-details">
+            <div class="about-detail-row"><span class="detail-key">Age</span><span class="detail-val">30</span></div>
+            <div class="about-detail-row"><span class="detail-key">Based in</span><span class="detail-val">Sweden</span></div>
+            <div class="about-detail-row"><span class="detail-key">Languages</span><span class="detail-val">Swedish, English</span></div>
+            <div class="about-detail-row"><span class="detail-key">Availability</span><span class="detail-val">Hire · project · freelance</span></div>
+          </div>
+          <div class="skills-grid">
+            <div class="skills-group">
+              <div class="skills-label">Languages</div>
+              <div class="skills-tags">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">Sass</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Python</span>
+              </div>
+            </div>
+            <div class="skills-group">
+              <div class="skills-label">Frameworks & Libraries</div>
+              <div class="skills-tags">
+                <span class="skill-tag">Bootstrap</span>
+                <span class="skill-tag">Tailwind</span>
+                <span class="skill-tag">jQuery</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">Express.js</span>
+              </div>
+            </div>
+            <div class="skills-group">
+              <div class="skills-label">Tools</div>
+              <div class="skills-tags">
+                <span class="skill-tag">VS Code</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Photoshop</span>
+                <span class="skill-tag">Final Cut Pro</span>
+              </div>
+            </div>
+            <div class="skills-group">
+              <div class="skills-label">Runtimes & Environments</div>
+              <div class="skills-tags">
+                <span class="skill-tag">Node.js</span>
+              </div>
+            </div>
+            <div class="skills-group">
+              <div class="skills-label">Databases</div>
+              <div class="skills-tags">
+                <span class="skill-tag">MongoDB</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-actions">
+            <a href="files/Diplom- Sanne J.pdf" target="_blank" class="modal-btn">View Certificate ↗</a>
+            <a href="files/cv2025.pdf" target="_blank" class="modal-btn secondary">Download Resumé →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CONTACT OVERLAY ── -->
+  <div class="project-overlay" id="contact-overlay" onclick="closeContactOverlay(event)">
+    <div class="project-modal contact-modal">
+      <div class="modal-titlebar">
+        <div class="modal-close" onclick="closeContact()"></div>
+        <span class="modal-title">GET IN TOUCH</span>
+      </div>
+      <div class="contact-body">
+        <div class="contact-intro">
+          <div class="contact-title">Let's work together</div>
+          <div class="contact-sub">Available for hire, project employment and freelance.</div>
+          <a href="/cdn-cgi/l/email-protection#93e0f2fdfdf6f9fcfbf2fde0e0fcfda4d3f4fef2faffbdf0fcfe" class="contact-email"><span class="__cf_email__" data-cfemail="d6a5b7b8b8b3bcb9beb7b8a5a5b9b8e196b1bbb7bfbaf8b5b9bb">[email&#160;protected]</span> ↗</a>
+        </div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-input" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="your@email.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-input" placeholder="+46 ...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-input form-textarea" placeholder="Tell me about your project..."></textarea>
+          </div></form>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ── DOCK ── -->
+  <div class="dock-wrap">
+    <div class="dock">
+      <div class="dock-item" onclick="dockClick('github')">
+        <div class="dock-icon"><i class="fa-brands fa-github"></i></div>
+        <div class="dock-tooltip">GitHub</div>
+      </div>
+      <div class="dock-item" onclick="dockClick('linkedin')">
+        <div class="dock-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+        <div class="dock-tooltip">LinkedIn</div>
+      </div>
+      <div class="dock-divider"></div>
+      <div class="dock-item" onclick="openContact()">
+        <div class="dock-icon">✉️</div>
+        <div class="dock-tooltip">Email Me</div>
+      </div>
+    </div>
+  </div>
+
+ <!-- ══════════════════════════════════════════
+       MOBILE LAYOUT
+  ══════════════════════════════════════════ -->
+  <div class="mobile-layout" id="mobile-layout">
+
+    <!-- Mobile header -->
+    <div class="mob-header">
+      <div class="mob-header-name">Sanne Johansson</div>
+      <div class="mob-header-actions">
+        <button class="mob-nav-btn" onclick="openAbout()">About</button>
+        <button class="mob-nav-btn" onclick="openContact()">Contact</button>
+      </div>
+    </div>
+
+    <!-- Tab filter -->
+    <div class="mob-tabs">
+      <button class="mob-tab active" data-folder="work" onclick="switchMobileTab(this,'work')">Selected Work</button>
+      <button class="mob-tab" data-folder="fullstack" onclick="switchMobileTab(this,'fullstack')">Full-Stack</button>
+      <button class="mob-tab" data-folder="frontend" onclick="switchMobileTab(this,'frontend')">Front-End</button>
+    </div>
+
+    <!-- Cards -->
+    <div class="mob-cards" id="mob-cards"></div>
+
+    <!-- Bottom nav -->
+    <div class="mob-bottom-nav">
+      <button class="mob-bottom-btn" onclick="dockClick('github')">
+        <span class="mob-bottom-icon"><i class="fa-brands fa-github"></i></span>
+        <span class="mob-bottom-label">GitHub</span>
+      </button>
+      <button class="mob-bottom-btn" onclick="dockClick('linkedin')">
+        <span class="mob-bottom-icon"><i class="fa-brands fa-linkedin-in"></i></span>
+        <span class="mob-bottom-label">LinkedIn</span>
+      </button>
+      <button class="mob-bottom-btn" onclick="openContact()">
+        <span class="mob-bottom-icon">✉️</span>
+        <span class="mob-bottom-label">Email</span>
+      </button>
+    </div>
+
+  </div><!-- /mobile-layout -->
+
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
