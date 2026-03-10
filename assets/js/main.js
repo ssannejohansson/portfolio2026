@@ -293,20 +293,9 @@ function closeAbout()        { document.getElementById('about-overlay').classLis
 function closeAboutOverlay(e){ if (e.target === document.getElementById('about-overlay')) closeAbout(); }
 
 // ── RESUME / CERTIFICATE ──
-function openResume()      { window.open('files/cv2025.pdf', '_blank'); }
+function openResume()      { window.open('files/CV2026.pdf', '_blank'); }
 function openCertificate() { window.open('files/Diplom- Sanne J.pdf', '_blank'); }
 
-// ── CONTACT ──
-function openContact()         { document.getElementById('contact-overlay').classList.add('open'); }
-function closeContact()        { document.getElementById('contact-overlay').classList.remove('open'); }
-function closeContactOverlay(e){ if (e.target === document.getElementById('contact-overlay')) closeContact(); }
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent        = 'Message sent ✓';
-  btn.style.opacity      = '0.6';
-  btn.style.pointerEvents = 'none';
-}
 
 // ── DOCK ──
 function dockClick(name) {

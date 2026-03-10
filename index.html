@@ -42,7 +42,6 @@
     <span class="menubar-item">View</span>
     <span class="menubar-item" onclick="showFolder('work')">Work</span>
     <span class="menubar-item" onclick="openAbout()">About</span>
-    <span class="menubar-item" onclick="openContact()">Contact</span>
     <div class="menubar-right">
       <span class="menubar-clock" id="clock">9:41 AM</span>
     </div>
@@ -193,8 +192,8 @@
           <div class="about-details">
             <div class="about-detail-row"><span class="detail-key">Age</span><span class="detail-val">30</span></div>
             <div class="about-detail-row"><span class="detail-key">Based in</span><span class="detail-val">Sweden</span></div>
-            <div class="about-detail-row"><span class="detail-key">Languages</span><span class="detail-val">Swedish, English</span></div>
-            <div class="about-detail-row"><span class="detail-key">Availability</span><span class="detail-val">Hire · project · freelance</span></div>
+            <div class="about-detail-row"><span class="detail-key">Languages</span><span class="detail-val">Swedish · English</span></div>
+            <div class="about-detail-row"><span class="detail-key">Availability</span><span class="detail-val">Hire · Project · Freelance</span></div>
           </div>
           <div class="skills-grid">
             <div class="skills-group">
@@ -250,42 +249,7 @@
     </div>
   </div>
 
-  <!-- ── CONTACT OVERLAY ── -->
-  <div class="project-overlay" id="contact-overlay" onclick="closeContactOverlay(event)">
-    <div class="project-modal contact-modal">
-      <div class="modal-titlebar">
-        <div class="modal-close" onclick="closeContact()"></div>
-        <span class="modal-title">GET IN TOUCH</span>
-      </div>
-      <div class="contact-body">
-        <div class="contact-intro">
-          <div class="contact-title">Let's work together</div>
-          <div class="contact-sub">Available for hire, project employment and freelance.</div>
-          <a href="/cdn-cgi/l/email-protection#93e0f2fdfdf6f9fcfbf2fde0e0fcfda4d3f4fef2faffbdf0fcfe" class="contact-email"><span class="__cf_email__" data-cfemail="d6a5b7b8b8b3bcb9beb7b8a5a5b9b8e196b1bbb7bfbaf8b5b9bb">[email&#160;protected]</span> ↗</a>
-        </div>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Full Name</label>
-              <input type="text" class="form-input" placeholder="Your name">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-input" placeholder="your@email.com">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Phone</label>
-            <input type="tel" class="form-input" placeholder="+46 ...">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Message</label>
-            <textarea class="form-input form-textarea" placeholder="Tell me about your project..."></textarea>
-          </div></form>
-      </div>
-    </div>
-
-  </div>
+ 
 
 
   <!-- ── DOCK ── -->
@@ -300,8 +264,8 @@
         <div class="dock-tooltip">LinkedIn</div>
       </div>
       <div class="dock-divider"></div>
-      <div class="dock-item" onclick="openContact()">
-        <div class="dock-icon">✉️</div>
+      <div class="dock-item">
+        <div class="dock-icon"><a href="mailto:sannej0hansson@hotmail.com">✉️</a></div>
         <div class="dock-tooltip">Email Me</div>
       </div>
     </div>

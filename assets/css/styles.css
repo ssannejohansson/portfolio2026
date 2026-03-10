@@ -534,6 +534,10 @@ body::after {
   background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%);
   pointer-events: none;
 }
+
+.dock-icon a {
+  text-decoration: none;
+}
 .dock-item:hover .dock-icon { border-color: rgba(255,255,255,0.2); box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
 
 .dock-tooltip {
