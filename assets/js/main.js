@@ -19,6 +19,17 @@ const folders = {
         github: 'https://github.com/ssannejohansson/MP3-bark-and-brush'
       },
       {
+        emoji: '🐕',
+        name: 'Prickebo',
+        year: '2026',
+        techTags: ['HTML', 'CSS', 'Bootstrap'],
+        typeTags: [],
+        desc: 'A website for a dog breeding business, designed to present the breed, the dogs and contact information in a clean and inviting way.',
+        screenshot: 'assets/images/prickebo.png',
+        live: 'https://ssannejohansson.github.io/prickebo/',
+        github: 'https://github.com/ssannejohansson/prickebo.git'
+      },
+      {
         emoji: '💬',
         name: 'Guess the Word',
         year: '2025',
@@ -147,6 +158,17 @@ const folders = {
         screenshot: 'assets/images/happyhour.png',
         live: 'https://ssannejohansson.github.io/happyhour/',
         github: 'https://ssannejohansson.github.io/happyhour/'
+      },
+      {
+        emoji: '🐕',
+        name: 'Prickebo',
+        year: '2026',
+        techTags: ['HTML', 'CSS', 'Bootstrap'],
+        typeTags: [],
+        desc: 'A website for a dog breeding business, designed to present the breed, the dogs and contact information in a clean and inviting way.',
+        screenshot: 'assets/images/prickebo.png',
+        live: 'https://ssannejohansson.github.io/prickebo/',
+        github: 'https://github.com/ssannejohansson/prickebo.git'
       }
     ]
   }

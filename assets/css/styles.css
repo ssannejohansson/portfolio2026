@@ -384,7 +384,7 @@ body::after {
 /* ── PROJECT MODAL HERO — screenshot or emoji fallback ── */
 .modal-body { display: flex; flex-direction: column; }
 .modal-hero {
-  height: 210px; position: relative; overflow: hidden;
+  height: 350px; position: relative; overflow: hidden;
   border-bottom: 1px solid var(--window-border);
   background: rgba(10,20,38,0.7);
 }
