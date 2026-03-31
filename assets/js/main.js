@@ -321,7 +321,9 @@ function openCertificate() { window.open('files/Diplom- Sanne J.pdf', '_blank');
 
 // ── DOCK ──
 function dockClick(name) {
-  const urls = { github: 'https://github.com/ssannejohansson', linkedin: '#' };
+  const urls = {
+      github: 'https://github.com/ssannejohansson',
+      linkedin: 'https://www.linkedin.com/in/sanne-johansson' };
   if (urls[name]) window.open(urls[name], '_blank');
 }
 
