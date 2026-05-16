@@ -186,15 +186,15 @@ function renderGrid(folderKey) {
   const grid = document.getElementById('project-grid');
   grid.innerHTML = '';
   folder.projects.forEach((p, i) => {
-    const initials = p.name.split(' ').map(w => w[0]).join('').slice(0, 1).toUpperCase();
     const div = document.createElement('div');
     div.className = 'project-icon';
+    const folderContent = p.screenshot
+      ? `<img class="proj-folder-img" src="${p.screenshot}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="proj-initials" style="display:none">${p.emoji}</span>`
+      : `<span class="proj-initials">${p.emoji}</span>`;
     div.innerHTML = `
       <div class="proj-folder">
         <div class="proj-folder-tab"></div>
-        <div class="proj-folder-body">
-          <span class="proj-initials">${initials}</span>
-        </div>
+        <div class="proj-folder-body">${folderContent}</div>
       </div>
       <div class="proj-label">${p.name}</div>
     `;
@@ -220,7 +220,23 @@ function selectProject(index, el, project) {
   selectedProject = project;
 
   const typeTags = project.typeTags || [];
-  document.getElementById('preview-emoji').textContent = project.name.split(' ').map(w => w[0]).join('').slice(0, 1).toUpperCase();
+  const previewImg   = document.getElementById('preview-img');
+  const previewEmoji = document.getElementById('preview-emoji');
+  if (project.screenshot) {
+    previewImg.src = project.screenshot;
+    previewImg.alt = project.name;
+    previewImg.style.display = 'block';
+    previewEmoji.style.display = 'none';
+    previewImg.onerror = () => {
+      previewImg.style.display = 'none';
+      previewEmoji.style.display = 'block';
+      previewEmoji.textContent = project.emoji;
+    };
+  } else {
+    previewImg.style.display = 'none';
+    previewEmoji.style.display = 'block';
+    previewEmoji.textContent = project.emoji;
+  }
   document.getElementById('preview-title').textContent = project.name;
   document.getElementById('preview-sub').textContent = project.year + (project.techTags.length ? ' · ' + project.techTags.slice(0, 3).join(' · ') : '');
   document.getElementById('preview-tags').innerHTML = [
@@ -302,7 +318,12 @@ function showFolder(folderKey) {
 
 // ── PREVIEW RESET ──
 function resetPreview() {
-  document.getElementById('preview-emoji').textContent = '📁';
+  const previewImg   = document.getElementById('preview-img');
+  const previewEmoji = document.getElementById('preview-emoji');
+  previewImg.style.display   = 'none';
+  previewImg.src             = '';
+  previewEmoji.style.display = 'block';
+  previewEmoji.textContent   = '📁';
   document.getElementById('preview-title').textContent = 'Select a project';
   document.getElementById('preview-sub').textContent   = 'Click a folder to preview';
   document.getElementById('preview-tags').innerHTML    = '';
@@ -353,16 +374,16 @@ function renderMobileCards(folderKey) {
   const container = document.getElementById('mob-cards');
   container.innerHTML = '';
   folder.projects.forEach(p => {
-    const initials = p.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
     const techTags = p.techTags || [];
+    const mobFolderContent = p.screenshot
+      ? `<img class="mob-card-folder-img" src="${p.screenshot}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="mob-card-initials" style="display:none">${p.emoji}</span>`
+      : `<span class="mob-card-initials">${p.emoji}</span>`;
     const card = document.createElement('div');
     card.className = 'mob-card';
     card.innerHTML = `
       <div class="mob-card-folder">
         <div class="mob-card-folder-tab"></div>
-        <div class="mob-card-folder-body">
-          <span class="mob-card-initials">${initials}</span>
-        </div>
+        <div class="mob-card-folder-body">${mobFolderContent}</div>
       </div>
       <div class="mob-card-info">
         <div class="mob-card-name">${p.name}</div>
