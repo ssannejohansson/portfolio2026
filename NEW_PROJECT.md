@@ -5,15 +5,22 @@ Fill in the fields below, then tell Claude to add the project.
 ---
 
 **Name:** 
+Review Room
 **Emoji:** 
+🎬
 **Year:** 
+2026
 **Folders:** work, fullstack
-**Tech Tags:** HTML, CSS, JavaScript
+**Tech Tags:** HTML, CSS, JavaScript, Node.js, Express, TypeScript, PostgreSQL, Prisma, Firebase Auth, REST API, Docker
 **Type Tags:** 
 **Description:** 
-**Screenshot:** assets/images/filename.png
+A full-stack TV show review platform where users can browse shows, read reviews, and log in to write their own. 
+
+**Screenshot:** assets/images/ReviewRoom.png
 **Live URL:** 
+https://reviewroom.vercel.app/
 **GitHub URL:** 
+https://github.com/ssannejohansson/ReviewRoom.git
 
 ---
 

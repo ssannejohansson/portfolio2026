@@ -50,16 +50,6 @@ const folders = {
         github: 'https://ssannejohansson.github.io/MS1-adopt-a-senior/'
       },
       {
-        emoji: '🐈',
-        name: 'Random Cat Facts',
-        year: '2025',
-        techTags: ['HTML', 'CSS', 'JavaScript', 'React'],
-        desc: 'A project for Sundsgårdens Folkhögskola Front-End Development Certification. Fetches random cat facts via API.',
-        screenshot: 'assets/images/random-fact.png',
-        live: 'https://ssannejohansson.github.io/random-fact/',
-        github: 'https://ssannejohansson.github.io/random-fact/'
-      },
-      {
         emoji: '💐',
         name: 'Bukettfabriken',
         year: '2026',
@@ -88,6 +78,17 @@ const folders = {
         screenshot: 'assets/images/thepostervault.png',
         live: 'https://the-poster-vault-89343956ce2e.herokuapp.com/',
         github: 'https://the-poster-vault-89343956ce2e.herokuapp.com/'
+      },
+      {
+        emoji: '🎬',
+        name: 'Review Room',
+        year: '2026',
+        techTags: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'TypeScript', 'PostgreSQL', 'Prisma', 'Firebase Auth', 'REST API', 'Docker'],
+        typeTags: [],
+        desc: 'A full-stack TV show review platform where users can browse shows, read reviews, and log in to write their own.',
+        screenshot: 'assets/images/ReviewRoom.png',
+        live: 'https://reviewroom.vercel.app/',
+        github: 'https://github.com/ssannejohansson/ReviewRoom.git'
       }
     ]
   },
@@ -133,6 +134,17 @@ const folders = {
         screenshot: 'assets/images/thepostervault.png',
         live: 'https://the-poster-vault-89343956ce2e.herokuapp.com/',
         github: 'https://the-poster-vault-89343956ce2e.herokuapp.com/'
+      },
+      {
+        emoji: '🎬',
+        name: 'Review Room',
+        year: '2026',
+        techTags: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'TypeScript', 'PostgreSQL', 'Prisma', 'Firebase Auth', 'REST API', 'Docker'],
+        typeTags: [],
+        desc: 'A full-stack TV show review platform where users can browse shows, read reviews, and log in to write their own.',
+        screenshot: 'assets/images/ReviewRoom.png',
+        live: 'https://reviewroom.vercel.app/',
+        github: 'https://github.com/ssannejohansson/ReviewRoom.git'
       }
     ]
   },
