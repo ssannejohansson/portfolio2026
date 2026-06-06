@@ -70,25 +70,26 @@ const folders = {
         github: 'https://ssannejohansson.github.io/happyhour/'
       },
       {
-        emoji: '🖼️',
-        name: 'The Poster Vault',
-        year: '2026',
-        techTags: ['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'Python', 'Django'],
-        desc: 'My fourth Milestone Project for Code Institute Full-Stack Web Application Development. A full-stack web application built with Django.',
-        screenshot: 'assets/images/thepostervault.png',
-        live: 'https://the-poster-vault-89343956ce2e.herokuapp.com/',
-        github: 'https://the-poster-vault-89343956ce2e.herokuapp.com/'
-      },
-      {
         emoji: '🎬',
         name: 'Review Room',
         year: '2026',
         techTags: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'TypeScript', 'PostgreSQL', 'Prisma', 'Firebase Auth', 'REST API', 'Docker'],
         typeTags: [],
-        desc: 'A full-stack TV show review platform where users can browse shows, read reviews, and log in to write their own.',
+        desc: 'A full-stack TV show review platform where users can browse shows, read reviews, and log in to write their own. Note: the live link shows the static demo version.',
         screenshot: 'assets/images/ReviewRoom.png',
-        live: 'https://reviewroom.vercel.app/',
+        live: 'https://ssannejohansson.github.io/reviewRoom-demo/',
         github: 'https://github.com/ssannejohansson/ReviewRoom.git'
+      },
+      {
+        emoji: '🌸',
+        name: 'Luna Home',
+        year: '2026',
+        techTags: ['HTML', 'CSS', 'JavaScript'],
+        typeTags: [],
+        desc: 'A curated home décor e-commerce demo site featuring category-based product browsing, wishlist and checkout functionality, and a clean, editorial brand identity.',
+        screenshot: 'assets/images/luna-home.png',
+        live: 'https://ssannejohansson.github.io/luna-home/',
+        github: 'https://github.com/ssannejohansson/luna-home'
       }
     ]
   },
@@ -126,24 +127,14 @@ const folders = {
         github: 'https://ssannejohansson.github.io/MS1-adopt-a-senior/'
       },
       {
-        emoji: '🖼️',
-        name: 'The Poster Vault',
-        year: '2025',
-        techTags: ['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'Python', 'Django'],
-        desc: 'My fourth Milestone Project for Code Institute Full-Stack Web Application Development. A full-stack web application built with Django.',
-        screenshot: 'assets/images/thepostervault.png',
-        live: 'https://the-poster-vault-89343956ce2e.herokuapp.com/',
-        github: 'https://the-poster-vault-89343956ce2e.herokuapp.com/'
-      },
-      {
         emoji: '🎬',
         name: 'Review Room',
         year: '2026',
         techTags: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'TypeScript', 'PostgreSQL', 'Prisma', 'Firebase Auth', 'REST API', 'Docker'],
         typeTags: [],
-        desc: 'A full-stack TV show review platform where users can browse shows, read reviews, and log in to write their own.',
+        desc: 'A full-stack TV show review platform where users can browse shows, read reviews, and log in to write their own. Note: the live link shows the static demo version.',
         screenshot: 'assets/images/ReviewRoom.png',
-        live: 'https://reviewroom.vercel.app/',
+        live: 'https://ssannejohansson.github.io/reviewRoom-demo/',
         github: 'https://github.com/ssannejohansson/ReviewRoom.git'
       }
     ]
@@ -181,6 +172,17 @@ const folders = {
         screenshot: 'assets/images/prickebo.png',
         live: 'https://ssannejohansson.github.io/prickebo/',
         github: 'https://github.com/ssannejohansson/prickebo.git'
+      },
+      {
+        emoji: '🌸',
+        name: 'Luna Home',
+        year: '2026',
+        techTags: ['HTML', 'CSS', 'JavaScript'],
+        typeTags: [],
+        desc: 'A curated home décor e-commerce demo site featuring category-based product browsing, wishlist and checkout functionality, and a clean, editorial brand identity.',
+        screenshot: 'assets/images/luna-home.png',
+        live: 'https://ssannejohansson.github.io/luna-home/',
+        github: 'https://github.com/ssannejohansson/luna-home'
       }
     ]
   }
@@ -350,6 +352,7 @@ function closeAboutOverlay(e){ if (e.target === document.getElementById('about-o
 // ── RESUME / CERTIFICATE ──
 function openResume()      { window.open('files/CV2026.pdf', '_blank'); }
 function openCertificate() { window.open('files/Diplom- Sanne J.pdf', '_blank'); }
+function openCIcert()      { window.open('files/cert-codeinstitute.pdf', '_blank'); }
 
 
 // ── DOCK ──

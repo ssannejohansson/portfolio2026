@@ -5,22 +5,22 @@ Fill in the fields below, then tell Claude to add the project.
 ---
 
 **Name:** 
-Review Room
+Luna Home
 **Emoji:** 
-🎬
+🌸
 **Year:** 
 2026
-**Folders:** work, fullstack
-**Tech Tags:** HTML, CSS, JavaScript, Node.js, Express, TypeScript, PostgreSQL, Prisma, Firebase Auth, REST API, Docker
+**Folders:** work, frontend
+**Tech Tags:** HTML, CSS, JavaScript
 **Type Tags:** 
 **Description:** 
-A full-stack TV show review platform where users can browse shows, read reviews, and log in to write their own. 
+A curated home décor e-commerce demo site featuring category-based product browsing, wishlist and checkout functionality, and a clean, editorial brand identity.
 
-**Screenshot:** assets/images/ReviewRoom.png
+**Screenshot:** assets/images/luna-home.png
 **Live URL:** 
-https://reviewroom.vercel.app/
+https://ssannejohansson.github.io/luna-home/
 **GitHub URL:** 
-https://github.com/ssannejohansson/ReviewRoom.git
+https://github.com/ssannejohansson/luna-home
 
 ---
 
